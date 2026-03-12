@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aura Bypass</title>
+
+<title>EVOM</title>
 
 <style>
 
@@ -38,6 +40,8 @@ color:#ff2b2b;
 margin-bottom:20px;
 }
 
+/* INPUT */
+
 input{
 width:100%;
 padding:10px;
@@ -47,6 +51,8 @@ border-radius:5px;
 background:#111;
 color:white;
 }
+
+/* BOTÃO */
 
 button{
 width:100%;
@@ -64,7 +70,7 @@ cursor:pointer;
 display:none;
 }
 
-/* MENU LATERAL */
+/* MENU */
 
 .sidebar{
 position:fixed;
@@ -85,6 +91,7 @@ padding:15px;
 color:white;
 text-decoration:none;
 border-bottom:1px solid #111;
+cursor:pointer;
 }
 
 .sidebar a:hover{
@@ -120,7 +127,7 @@ text-shadow:0 0 15px #ff0000;
 /* CONTAINER */
 
 .container{
-max-width:600px;
+max-width:800px;
 margin:auto;
 padding:20px;
 }
@@ -138,22 +145,21 @@ box-shadow:0 0 20px rgba(255,0,0,0.2);
 /* TITULO */
 
 .titulo{
-font-size:18px;
+font-size:20px;
 letter-spacing:2px;
 color:#ff3b3b;
 text-shadow:0 0 10px #ff0000;
 margin-bottom:20px;
 }
 
-/* ALERTA */
+/* SEÇÕES */
 
-.alerta{
-background:#2a0a0a;
-border:1px solid #ff2a2a;
-padding:15px;
-border-radius:10px;
-margin-bottom:25px;
-color:#ffb3b3;
+.section{
+display:none;
+}
+
+.section.ativa{
+display:block;
 }
 
 /* PASSOS */
@@ -174,25 +180,22 @@ align-items:center;
 justify-content:center;
 color:#ff2b2b;
 margin-right:15px;
-box-shadow:0 0 10px rgba(255,0,0,0.5);
 }
 
 .texto{
 line-height:1.5;
 }
 
-/* BOTÃO FINAL */
+/* DOWNLOAD */
 
-.final{
-margin-top:25px;
-background:#0b2a0b;
-border:1px solid #00ff66;
-padding:15px;
-text-align:center;
-border-radius:10px;
-color:#00ff66;
-font-weight:bold;
-box-shadow:0 0 15px rgba(0,255,100,0.5);
+.download-btn{
+display:inline-block;
+margin-top:15px;
+padding:12px 20px;
+background:#ff0000;
+border-radius:6px;
+text-decoration:none;
+color:white;
 }
 
 </style>
@@ -206,10 +209,9 @@ box-shadow:0 0 15px rgba(0,255,100,0.5);
 
 <div class="login-box">
 
-<h2>AURA BYPASS</h2>
+<h2>EVOM</h2>
 
 <input type="text" id="user" placeholder="Usuário">
-
 <input type="password" id="pass" placeholder="Senha">
 
 <button onclick="logar()">Entrar</button>
@@ -217,15 +219,15 @@ box-shadow:0 0 15px rgba(0,255,100,0.5);
 </div>
 </div>
 
-<!-- MENU LATERAL -->
+<!-- MENU -->
 
 <div class="sidebar" id="menu">
 
-<a href="#">Dashboard</a>
-<a href="#">Histórico</a>
-<a href="#">Ferramentas</a>
-<a href="#">Configurações</a>
-<a href="#" onclick="logout()">Sair</a>
+<a onclick="mostrar('dashboard')">Dashboard</a>
+<a onclick="mostrar('download')">Download</a>
+<a onclick="mostrar('tutoriais')">Tutoriais</a>
+<a onclick="mostrar('funcoes')">Funções</a>
+<a onclick="logout()">Sair</a>
 
 </div>
 
@@ -235,63 +237,84 @@ box-shadow:0 0 15px rgba(0,255,100,0.5);
 
 <div class="topo">
 <div class="menu-btn" onclick="abrirMenu()">☰</div>
-<div class="logo">AURA BYPASS</div>
+<div class="logo">EVOM</div>
 </div>
 
 <div class="container">
 
+<!-- DASHBOARD -->
+
+<div id="dashboard" class="section ativa">
+
 <div class="card">
 
-<div class="titulo">PROCEDIMENTO HISTÓRICO DE LOGIN</div>
+<div class="titulo">EVOM DASHBOARD</div>
 
-<div class="alerta">
-⚠️ Siga os passos na ordem exata para evitar problemas.
+<p>Bem-vindo ao painel EVOM.</p>
+<p>Acesse o menu lateral para navegar.</p>
+
 </div>
+</div>
+
+<!-- DOWNLOAD -->
+
+<div id="download" class="section">
+
+<div class="card">
+
+<div class="titulo">DOWNLOAD</div>
+
+<p>Baixe a versão mais recente:</p>
+
+<a class="download-btn" href="#">Baixar EVOM</a>
+
+</div>
+</div>
+
+<!-- TUTORIAIS -->
+
+<div id="tutoriais" class="section">
+
+<div class="card">
+
+<div class="titulo">TUTORIAL</div>
 
 <div class="passo">
 <div class="numero">1</div>
-<div class="texto">Feche completamente o Free Fire</div>
+<div class="texto">Feche o jogo completamente</div>
 </div>
 
 <div class="passo">
 <div class="numero">2</div>
-<div class="texto">Acesse Ajustes - Geral - Data/Hora <b>aura bypass – history</b></div>
+<div class="texto">Abra EVOM</div>
 </div>
 
 <div class="passo">
 <div class="numero">3</div>
-<div class="texto">Desative definir automaticamente, coloque Fuso Horario = Manaus</div>
+<div class="texto">Execute o bypass</div>
 </div>
 
-<div class="passo">
-<div class="numero">4</div>
-<div class="texto">Acesse o <b>histórico de login</b></div>
-</div>
-
-<div class="passo">
-<div class="numero">5</div>
-<div class="texto">
-Após identificar o horário do seu dispositivo no histórico de login
-(por exemplo, <b>12:20</b>), entre no replay e saia .
 </div>
 </div>
 
-<div class="passo">
-<div class="numero">6</div>
-<div class="texto">Feche o histórico de login</div>
-</div>
+<!-- FUNÇÕES -->
 
-<div class="passo">
-<div class="numero">7</div>
-<div class="texto">
-Desative o Fuso Horario - Manaus , em Ajustes → Geral → Data/Hora
-</div>
-</div>
+<div id="funcoes" class="section">
 
-<div class="final">
-✔ BYPASS CONCLUÍDO
-</div>
+<div class="card">
 
+<div class="titulo">FUNÇÕES</div>
+
+<p>Lista de funções disponíveis:</p>
+
+<ul>
+<li>Aimbot</li>
+<li>ESP</li>
+<li>No recoil</li>
+<li>Bypass anti-ban</li>
+</ul>
+
+</div>
 </div>
 
 </div>
@@ -300,36 +323,40 @@ Desative o Fuso Horario - Manaus , em Ajustes → Geral → Data/Hora
 
 <script>
 
-/* LOGIN */
-
 function logar(){
 
-let user = document.getElementById("user").value
-let pass = document.getElementById("pass").value
+let user=document.getElementById("user").value
+let pass=document.getElementById("pass").value
 
-if(user == "auracliente" && pass == "martin"){
+if(user=="evom" && pass=="client"){
 
 document.getElementById("login").style.display="none"
 document.getElementById("painel").style.display="block"
 
 }else{
-
 alert("Login inválido")
-
 }
 
 }
-
-/* MENU */
 
 function abrirMenu(){
 document.getElementById("menu").classList.toggle("ativo")
 }
 
-/* LOGOUT */
-
 function logout(){
 location.reload()
+}
+
+function mostrar(sec){
+
+let sections=document.querySelectorAll(".section")
+
+sections.forEach(s=>{
+s.classList.remove("ativa")
+})
+
+document.getElementById(sec).classList.add("ativa")
+
 }
 
 </script>
